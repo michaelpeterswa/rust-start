@@ -20,6 +20,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
     --mount=type=cache,target=$SCCACHE_DIR,sharing=locked \
     cargo build --release --bin rust-start
 
+# hadolint ignore=DL3006
 FROM gcr.io/distroless/cc-debian12 AS stage-3
 WORKDIR /app
 COPY --from=stage-2 /app/target/release/rust-start /app/rust-start

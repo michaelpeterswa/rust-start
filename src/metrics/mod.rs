@@ -1,5 +1,4 @@
 use axum::{routing::get, Router};
-use gethostname;
 use prometheus::{Encoder, TextEncoder};
 
 pub async fn start_metrics_server(host: String, port: u16) {
